@@ -1,0 +1,122 @@
+/* FOOTER */
+footer{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: 3rem 2rem 3rem 2rem;
+    background-color: #354d2a;
+    width: 100vw;
+}
+/* FOOTER - Grid Container e artigo */
+.footercontent{
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    'title1 title2 title3'
+    'div1 div2 div3'
+    'hr hr hr';
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+/* Divisão do Grid */
+
+/* Títulos */
+.footercontent > h3:first-child{
+    grid-area: title1;
+}
+
+.footercontent > h3:nth-child(2){
+    grid-area: title2;
+}
+
+.footercontent > h3:last-child{
+    grid-area: title3;
+}
+
+/* Artigos */
+.div-sobre{
+    grid-area: div1;
+}
+
+.div-links{
+    grid-area: div2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.div-redes{
+    grid-area: div3;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5rem;
+}
+
+/* Hr */
+footer hr{
+    height: 1px;
+    background-color: #ffffff;
+    grid-area: hr;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Alterações de cada um dos 3 articles e Direitos Autorais */
+
+.footercontent > h3{
+    font-size: 1.5rem;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 0.875rem;
+}
+
+.footercontent > article p, a{
+    color: #777777;
+    font-weight: lighter;
+}
+
+footer i{
+    font-size: 20px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+footer > p:last-child{
+    font-size: 0.875rem;
+    color: #777777;
+    font-weight: lighter;
+}
+
+/* Média Queries */
+
+@media screen and (max-width: 768px){
+    .footercontent{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        'title1 title2'
+        'div1 div2'
+        'title3 title3'
+        'div3 div3'
+        'hr hr';
+    }
+}
+
+/* Média Queries */
+
+@media screen and (max-width: 568px){
+    .footercontent{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'title1'
+        'div1'
+        'title2'
+        'div2'
+        'title3'
+        'div3'
+        'hr';
+    }
+}

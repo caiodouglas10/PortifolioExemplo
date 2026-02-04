@@ -1,0 +1,204 @@
+/* Main e h1 da página */
+main{
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #ecf0f1;
+    padding: 32px;
+    row-gap: 32px;
+}
+
+h1{
+    text-wrap: nowrap;
+    margin-top: 80px;
+    margin-bottom: 35px;
+}
+
+/* Manipulação da barra de navegação (categorias) */
+
+main > nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 600px;
+    column-gap: 50px;
+    row-gap: 20px;
+}
+
+main nav > button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 50px;
+    border-color: #48762e;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+nav > button[id]{
+    background-color: #5a933c;
+    color: #ffffff;
+    border: none;
+}
+
+nav > button:hover{
+    color: #ffffff;
+    background-color: #48762e;
+}
+
+/* Grid dos projetos */
+.projects{
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 350px);
+    grid-template-areas: 
+    'projeto1 projeto2 projeto3'
+    'projeto4 projeto5 projeto6'
+    'projeto7 projeto8 projetonull';
+    gap: 32px;
+}
+
+/* Cada artigo de um projeto */
+article.project{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+/* Figura e Imagem de um Projeto */
+article > figure{
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 55%;
+    width: 100%;
+    margin: 0;
+}
+article > figure > img{
+    object-position: center;
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Hover do botão e link para acessar o projeto, absolute usada para sobrepor o relative do pai (figure) */
+figure > button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    position: absolute;
+}
+
+figure button > a{
+    border: 2px solid #48762e;
+    color: #48762e;
+    padding: 0.875rem;
+}
+
+figure > button:hover{
+    opacity: 55%;
+}
+
+figure button > a:hover{
+    color: #ffffff;
+    border: 4px;
+    background-color: #5a933c;;
+    border-color: #48762e;
+}
+
+/* Posicionamento da divisória de Informações de cada artigo (projeto) */
+article > aside{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 45%;
+    row-gap: 15px;
+    padding: 24px;
+}
+
+article > aside > h3{
+    font-size: 1.5rem;
+}
+
+/* Posição grid de cada */
+article.project:first-child{
+    grid-area: projeto1;
+}
+
+article.project:nth-child(2){
+    grid-area: projeto2;
+}
+
+article.project:nth-child(3){
+    grid-area: projeto3;
+}
+
+article.project:nth-child(4){
+    grid-area: projeto4;
+}
+
+article.project:nth-child(5){
+    grid-area: projeto5;
+}
+
+article.project:nth-child(6){
+    grid-area: projeto6;
+}
+article.project:nth-child(7){
+    grid-area: projeto7;
+}
+
+article.project:last-child{
+    grid-area: projeto8;
+}
+
+/* Media Queries */
+@media screen and (max-width:768px){
+    .projects{
+        grid-template-columns: repeat(2, calc(50% - 32px));
+        grid-template-rows: repeat(4, 350px);
+        grid-template-areas: 
+        'projeto1 projeto2'
+        'projeto3 projeto4'
+        'projeto5 projeto6'
+        'projeto7 projeto8';
+        }
+
+        figure button > a{
+            width: 100%;
+            height: 100%;
+        }
+
+        main nav > button{
+            width: 150px;
+        }
+}
+
+@media screen and (max-width:568px){
+    .projects{
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        'projeto1'
+        'projeto2'
+        'projeto3'
+        'projeto4'
+        'projeto5'
+        'projeto6'
+        'projeto7'
+        'projeto8';
+    }
+
+    main nav > button{
+            width: 200px;
+        }
+}

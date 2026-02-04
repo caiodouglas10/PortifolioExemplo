@@ -1,0 +1,90 @@
+/* Header*/
+header{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+}
+  
+.headercontent{
+    max-width: 1200px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+#logo{
+    color: #354d2a;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.headercontent span:only-child{
+    color: #5a933c;
+}
+
+/* Hamburguer Button */
+.headercontent > a:last-child{
+    display: none;
+}
+
+/* Manipulação do menu de navegação e seus li */
+
+.headercontent ul{
+    display: flex;
+    column-gap: 2rem;
+    list-style: none;
+}
+
+nav li {
+    font-size: 16px;
+}
+
+nav li > a{
+    color: #333333;
+}
+
+nav li:not([id]){
+    text-decoration: underline transparent 5px solid;
+    text-underline-offset: 10px;
+    transition: all 3s 0.2s linear;
+}
+
+nav li:not([id]):hover{
+    text-decoration-color: #48762e;;
+}    
+
+/* Text Decoration padrão de cada página atual */
+#currentpage{
+    text-decoration: underline #48762e 5px solid;
+    text-underline-offset: 10px;
+    transition: text-decoration 4s 0.2 linear;
+}
+
+/* Média Queries */
+
+@media screen and (max-width: 768px){
+    nav{
+        display: none;
+    }
+
+    .headercontent a:last-child{
+        display: inline;
+        position: relative;
+        right: 100px;
+    }
+}
+
+@media screen and (max-width: 568px){
+    .headercontent a:last-child{
+        right: 50px;
+    }
+}

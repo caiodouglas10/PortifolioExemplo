@@ -1,0 +1,170 @@
+/* H1 DO INDEX/LOGO */
+#logo > h1{
+    font-size: 1.5rem;
+}
+
+/* PADRONIZAÇÃO DA MAIN */
+main.home{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    place-items: center;
+    background-color: #ffffff;
+}
+
+/* Hero section (Separado por configurações de grid, background e o hero em si)*/
+.grid-container{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px;
+    grid-template-areas: 'img txt';
+}
+
+.hero-background{
+    display: flex;
+    place-items: center;
+    width: 100vw;
+    background-color: #e5f3dd;
+}
+
+.hero{
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 6rem;
+    padding: repeat(2, 4rem 2rem);
+    margin-top: 6rem;
+}
+/* Imagens do Hero */
+.hero > img{
+    grid-area: img;
+    width: 250px;
+    height: 300px;
+} 
+
+/* Texto do Hero e modificações em seus filhos parágrafos e botão */
+.hero > article{
+    display: flex;
+    flex-direction: column;
+    grid-area: txt;
+    row-gap: 15px;
+}
+
+.hero article p{
+    color: #333333;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.hero article > p:nth-child(2){
+    font-weight: bolder;
+    font-size: 2rem;
+    color: #48762e;
+}
+
+.hero article > a:only-of-type{
+    text-align: center;
+    line-height: 50px;
+    color:  #5a933c;
+    width: 180px;
+    height: 45px;
+    border: solid 3px;
+    border-color: #48762e;
+}
+
+.hero article > a:hover{
+    color: #ffffff;
+    background-color: #48762e;
+}
+
+/* Seção de Habilidades */
+.skills{
+    display: grid;
+    place-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 4rem 2rem 4rem 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    'txt txt txt'
+    'dweb dui dmob';
+    row-gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Título principal de Skills */
+
+.skills > h2{
+    text-align: center;
+    color: #354d2a;
+    font-weight: bolder;
+    grid-area: txt;
+    font-size: 2rem;
+}
+
+/* Cada tópico de Skills */
+.skills > article{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+/* Subtítulos */
+.skills > article > h3{
+    font-size: 1.5rem;
+}
+/* Posicionamento dos artigos */
+.skills-web{
+    grid-area: dweb;
+}
+
+.skills-ui{
+    grid-area: dui
+}
+
+.skills-mobile{
+    grid-area: dmob;
+}
+
+/* Média Queries */
+@media screen and (max-width: 768px){
+    .grid-container{
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "img"
+        "txt";
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .hero > img{
+        display: flex;
+        justify-self: center;
+    }
+    .hero > article{
+        place-items: center;
+    }
+    .skills{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    'txt txt'
+    'dweb dui' 
+    'dmob dnone';
+    }
+
+    .skills article{
+        place-items: center;
+    }
+}
+
+@media screen and (max-width: 568px){
+    .skills{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'txt'
+    'dweb' 
+    'dui' 
+    'dmob';
+    }
+}
